@@ -7,6 +7,17 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * 
+ * This class allows for the parsing of the text files from GroupLens splitting each one 
+ * into useful array lists each containing different information regarding data, items and
+ * users. Once split up the data can be compared to other pieces of data acquired from
+ * other text files, or pulled from The Online Movie Database. 
+ * 
+ * @author Stuart Maynard
+ *
+ */
+
 public class Data {
 	
 	File u_data = new File("C:/Users/Stuart Maynard/University/4th Year/CS408 - Individual Project/Datasets/ml-100k/u.data");
