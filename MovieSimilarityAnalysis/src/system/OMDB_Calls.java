@@ -14,22 +14,41 @@ public class OMDB_Calls {
 
 	public static void main(String[] args) {
 		String received = "";
+		String url_Requested = "https://api.themoviedb.org/3/discover/movie?api_key=64c44e78b515a793ad651ddfdf7ab4af&with_cast=17276,3894,10297.desc";
 		URL_Call c_url = new URL_Call();
 		ParseJSON parse = new ParseJSON();
+		
+		/*------------------------------------------*/
 
 		//Movie request by "id" e.g. 550
-		received = c_url.requestURL("https://api.themoviedb.org/3/movie/550?api_key=64c44e78b515a793ad651ddfdf7ab4af");
+//		https://api.themoviedb.org/3/movie/76341?api_key=64c44e78b515a793ad651ddfdf7ab4af"
 		
-		/*Search for a movie based on test query*/
-//		received = c_url.requestURL("https://api.themoviedb.org/3/search/movie?api_key=64c44e78b515a793ad651ddfdf7ab4af&james.search");
-		
+		/*Liam Neesons highest grossing R rated movies - 2 pages, 29 results*/ 
+//		"https://api.themoviedb.org/3/discover/movie?api_key=64c44e78b515a793ad651ddfdf7ab4af&certification_country=US&certification=R&sort_by=revenue.desc&with_cast=3896"
+
+		/*Search for a movies in theatres 77 pages, 1529 results*/
+//		"https://api.themoviedb.org/3/discover/movie?api_key=64c44e78b515a793ad651ddfdf7ab4af&primary_release_date.gte=2016-01-01&primary_release_date.lte=2016-03-06"
+
 		/*Highest rated movies rated R*/
-//		received = c_url.requestURL("https://api.themoviedb.org/3/discover/movie?api_key=64c44e78b515a793ad651ddfdf7ab4af&certification_country=US&certification=R&sort_by=vote_average.desc");
+//		"https://api.themoviedb.org/3/discover/movie?api_key=64c44e78b515a793ad651ddfdf7ab4af&certification_country=US&certification=R&sort_by=vote_average.desc"
 
 		/*Most popular movies*/
-//		received = c_url.requestURL("https://api.themoviedb.org/3/discover/movie?api_key=64c44e78b515a793ad651ddfdf7ab4af&sort_by=popularity.desc");
-
-		parse.parseMovieByIDCall(received);
+//		"https://api.themoviedb.org/3/discover/movie?api_key=64c44e78b515a793ad651ddfdf7ab4af&sort_by=popularity.desc"
+		
+		/*------------------------------------------*/
+		
+		received = c_url.requestURL(url_Requested);
 		System.out.println("\nJSON Output: \n" + received);
+			
+		/*------------------------------------------*/
+		
+		/* For single MOVIE return & parse */ 
+//		parse.parseMovieByIDCall(received);
+		
+		/* For multiple MOVIE return & parse */
+//		parse.parseDiscoverList(received, url_Requested);
+		
+		/* For GENRE parse */
+//		parse.parseGenreList(received);
 	}
 }
